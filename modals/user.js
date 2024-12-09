@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 // mongodb://127.0.0.1:27017/miniproject
-// mongoose.connect("mongodb://localhost:27017/miniproject");
+
 const uri =
   "mongodb+srv://anas:anas@cluster0.z81xd8p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-mongoose.connect(uri);
+mongoose
+  .connect(uri)
+  .then(() => {
+    console.log("connected to MongoDb");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 const userSchema = mongoose.Schema({
   username: String,
   name: String,

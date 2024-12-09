@@ -95,7 +95,7 @@ app.post("/login", async (req, res) => {
       res.cookie("token", token);
       res.status(200).redirect("/profile");
     } else {
-      res.render("login");
+      res.redirect("login");
     }
   });
 });
